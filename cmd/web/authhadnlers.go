@@ -21,15 +21,15 @@ type Authenticator struct {
 
 func (app *application) NewAuthenticator() (*Authenticator, error) {
 	ctx := context.Background()
-	provider, err := oidc.NewProvider(ctx, "https://login.microsoftonline.com/"+os.Getenv("tenantid")+"/v2.0")
+	provider, err := oidc.NewProvider(ctx, "https://login.microsoftonline.com/"+os.Getenv("AZURE_TENANT_ID")+"/v2.0")
 	if err != nil {
 		app.infoLog.Printf("failed to get provider: %v", err)
 		return nil, err
 	}
 
 	conf := oauth2.Config{
-		ClientID:     os.Getenv("clientid"),
-		ClientSecret: os.Getenv("clientsecret"),
+		ClientID:     os.Getenv("AZURE_CLIENT_ID"),
+		ClientSecret: os.Getenv("AZURE_CLIENT_SECRET"),
 		RedirectURL:  os.Getenv("callbackurl"),
 		Endpoint:     provider.Endpoint(),
 		Scopes:       []string{oidc.ScopeOpenID, "profile"},
