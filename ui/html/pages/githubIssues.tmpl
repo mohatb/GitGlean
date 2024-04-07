@@ -1,0 +1,44 @@
+{{define "title"}}AKS Github Issues{{end}}
+
+{{define "main"}}
+<div>
+    <h2>AKS GitHub Issues</h2>
+    <div id="search-container">
+        <input type="search" id="search-input" placeholder="Search AKS issues...">
+        <button id="search-btn">Search</button>
+    </div>    
+    <table id="issuesTable">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>State</th>
+                <th>URL</th>
+                <th>Comments</th>
+                <th>Reactions</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Issues will be populated here by JavaScript -->
+        </tbody>
+    </table>
+    <div id="pagination-controls">
+        <button onclick="changePage(-1)">Prev</button>
+        <span id="page-info"></span>
+        <button onclick="changePage(1)">Next</button>
+    </div>
+    <!-- Modal -->
+    <div id="analysisModal" class="modal" style="display:none;">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Analysis Summary</h2>
+        <p id="analysisText"></p>
+      </div>
+    </div>
+</div>
+<!-- Place this in your HTML where you want the loader to appear -->
+<div id="loader"></div>
+
+<script src="/static/js/githubIssues.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+{{end}}

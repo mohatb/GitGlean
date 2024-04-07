@@ -1,0 +1,36 @@
+{{define "title"}}home{{end}}
+
+{{define "main"}}
+
+{{if .Name}}
+<p>Hello, {{ .Name}}. You can get started by navigating to the labs section.</p>
+{{end}}
+<div class="container">
+  <br><br>
+  <div class="card">
+    <div class="card-body">
+      <p>Welcome to OpRail, an interactive online platform that gives you access to a wide range of Linux and Windows labs. Our platform provides you with an interactive terminal that allows you to get a hands-on experience in a fun and interactive way. On the left side of the labs, you'll find step-by-step instructions, making it easy to follow along. Whether you're a beginner or an expert, OpRail is the perfect place to enhance your knowledge and skills</p>
+    </div>
+  </div>
+  <br><br>
+
+  {{if not .Name}}
+  <div style="display: flex; justify-content: center;">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Sign in with AzureAD</h3>
+          </div>
+          <div class="panel-body">
+            <form action="/login" method="post">
+              <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{end}}
+</div>
+{{end}}

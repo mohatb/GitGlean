@@ -1,0 +1,15 @@
+{{define "nav"}}
+
+ <nav>
+    <a href='/'>Home</a>
+    {{if .Name}}
+    <a href='/labs'>Labs</a>
+    <a href='/logout'>Sign Out</a>
+    <a href='/github-issues'>Github Issues</a>
+    {{end}}
+    {{if not .Name}}
+      <a href='/login'>Sing In</a>
+      <a href='/github-issues'>Github Issues</a>
+    {{end}}
+</nav>
+{{end}}
